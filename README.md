@@ -2,8 +2,6 @@
 
 This project is a **Node.js** backend application that routes incoming SMS messages to the appropriate carrier based on the destination country and message type. It follows a clean design pattern (Strategy Pattern) and is integrated with MongoDB to store SMS data.
 
-Optional analytics functionality tracks message performance (e.g., success rates and carrier statistics).
-
 ---
 
 ## **Table of Contents**
@@ -163,16 +161,10 @@ npx jest
 ## **Design Choices**
 
 1. **Strategy Pattern**:
-   The SMS routing logic is implemented using the **Strategy Pattern**. Each `messageType` (e.g., `OTP`, `PROMOTIONAL`) has its own routing strategy, making the system easy to extend. (Because abstract classes are not available in JavaScript, the pattern is implemented using classes and inheritance. This affects the design slightly, but for the speed of development, I've chosen JavaScript instead of TypeScript.)
+   The SMS routing logic is implemented using the **Strategy Pattern**. Each `messageType` (e.g., `OTP`, `PROMOTIONAL`) has its own routing strategy, making the system easy to extend. (Because abstract classes are not available in JavaScript, the pattern is implemented using classes and inheritance. This affects the design slightly, but for the speed of development, I've chosen JavaScript instead of TypeScript, in which the Strategy Pattern would be easier to implement.)
 
-2. **MongoDB for Scalability**:
-   SMS data, including metadata (sender, recipient, timestamp), is stored in MongoDB, which scales well for large datasets.
-
-3. **Unit Testing**:
-   Routing logic is verified with Jest unit tests to ensure the correct carrier assignment.
-
-4. **Docker**:
-   The application is containerized to simplify deployment and ensure compatibility across environments.
+2. **Express.js**:
+   Express.js is used for API management. It provides a simple and flexible framework for building web applications.
 
 ---
 
